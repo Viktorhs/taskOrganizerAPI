@@ -23,20 +23,20 @@ async function deleteOne(id: number): Promise<void>{
 
 async function updateTask(task: Task, id: number){
     connection.query(
-        'UPDATE task SET task = $1, description = $2, day = $3, responsible = $4 WHERE id = $5',
+        'UPDATE tasks SET task = $1, description = $2, day = $3, responsible = $4 WHERE id = $5',
         [task.task, task.description, task.day, task.responsible, id])
 }
 
 async function updateStatus(status: boolean,id: number): Promise<void>{
     connection.query(
-        'UPDATE task SET status = $1 WHERE id = $2',
+        'UPDATE tasks SET status = $1 WHERE id = $2',
         [status, id]
     )
 }
 
 async function searchTask(id: number): Promise<QueryResult<TaskEntity>>{
     return connection.query(
-        'SELECT * FROM tasks WHERE id: $1',
+        'SELECT * FROM tasks WHERE id = $1',
         [id]
     )
 }

@@ -35,7 +35,6 @@ async function updateContent(req: Request, res: Response){
     try {
 
         const isValid = await searchTask(id)
-
         if(isValid.rowCount === 0){
             return res.sendStatus(404)
         }
