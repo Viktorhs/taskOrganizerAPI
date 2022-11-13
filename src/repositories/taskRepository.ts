@@ -10,7 +10,9 @@ async function insertTask(task: Task): Promise<void>{
 
 async function listAll(): Promise<QueryResult<TaskEntity>> {
     return connection.query(
-        'SELECT * FROM tasks'
+        `SELECT tasks.id, tasks.task, tasks.description, tasks.day, tasks."isComplete" , users.name AS "responsible"FROM tasks 
+        JOIN users 
+        ON tasks."responsible" = users.id`
     )
 }
 
@@ -29,7 +31,7 @@ async function updateTask(task: Task, id: number){
 
 async function updateStatus(status: boolean,id: number): Promise<void>{
     connection.query(
-        'UPDATE tasks SET status = $1 WHERE id = $2',
+        'UPDATE tasks SET "isComplete" = $1 WHERE id = $2',
         [status, id]
     )
 }

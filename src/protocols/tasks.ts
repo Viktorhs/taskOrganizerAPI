@@ -3,12 +3,12 @@ type TaskEntity = {
     task: string,
     description?: string,
     day: Date | string,
-    responsible: number,
-    status: boolean,
+    responsible: number | string,
+    isComplete: boolean,
     createdAt: Date | string
 }
 
-type Task = Omit<TaskEntity, "id" | "createdAt" | "status">
+type Task = Omit<TaskEntity, "id" | "createdAt" | "isComplete">
 
 export {
     TaskEntity,

@@ -66,7 +66,7 @@ async function updateTaskStatus(req: Request, res: Response){
             return res.sendStatus(404)
         }
 
-        if(isValid.rows[0].status === true){
+        if(isValid.rows[0].isComplete=== true){
             status = false
         }
 
