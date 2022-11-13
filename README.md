@@ -28,7 +28,7 @@ npm run start
 
 #### Retorna todas as tasks
 
-```http
+```bash
   GET /task
 ```
 
@@ -44,7 +44,7 @@ npm run start
 
 #### Retorna a task buscada
 
-```http
+```bash
   GET /task?id=${id-da-task}
 ```
 
@@ -60,7 +60,7 @@ npm run start
 
 #### Criar uma nova task
 
-```http
+```bash
   POST /task
 ```
 Exemplo do body da criação das task:
@@ -73,7 +73,7 @@ Exemplo do body da criação das task:
 
 #### Atualiazar informações da task ja criada
 
-```http
+```bash
   PUT /task/${id-da-task}
 ```
 Exemplo do body para atualiazar uma task:
@@ -86,21 +86,21 @@ Exemplo do body para atualiazar uma task:
 
 #### Atualiazar isComplete de uma task
 
-```http
+```bash
   PATCH /statusUpdate/${id-da-task}
 ```
 A enviar a requisição para a rota o parametro isComplete sera alterado para true ou false dependendo do seu estado atual.
 
 #### Deletar uma task
 
-```http
+```bash
   DELETE /deleteTask/${id-da-task}
 ```
 A enviar a requisição para a rota a task com o id enviado sera ddeletada.
 
 #### Retorna todos os usuarios
 
-```http
+```bash
   GET /users
 ```
 
@@ -113,7 +113,7 @@ A enviar a requisição para a rota a task com o id enviado sera ddeletada.
 
 #### Retorna o usuario buscado
 
-```http
+```bash
   GET /users?id=${id-o-usuario}
 ```
 
@@ -126,7 +126,7 @@ A enviar a requisição para a rota a task com o id enviado sera ddeletada.
 
 #### Criar um novo usuario
 
-```http
+```bash
   POST /users
 ```
 Exemplo do body da criação do usuario:
