@@ -2,6 +2,7 @@ import { Request, Response} from "express";
 import { Task, TaskEntity } from "../protocols/tasks.js";
 import { taskSchema } from "../schemas/taskSchemas.js";
 import { deleteOne, insertTask, listAll, listResponsible, searchTask, updateStatus, updateTask } from '../repositories/taskRepository.js';
+import { listUniqueUsers } from "../repositories/authRepository.js";
 
 async function createTask(req: Request, res: Response){
     const response = req.body as Task;
@@ -13,6 +14,13 @@ async function createTask(req: Request, res: Response){
     }
 
     try {
+        const isValidUser = await listUniqueUsers(Number(response.responsible))
+        if(isValidUser.rowCount === 0){
+            return res.status(404).send({
+                message: 'user not found'
+            })
+        }
+
         await insertTask(response)
         res.sendStatus(201)
     } catch (error) {
